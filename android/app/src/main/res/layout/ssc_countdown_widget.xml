@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/widget_background"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/widget_days_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23"
+        android:textSize="48sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/widget_days_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Days Until SSC"
+        android:textSize="14sp"
+        android:textColor="#B8B8D0"/>
+
+    <TextView
+        android:id="@+id/widget_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SSC26"
+        android:textSize="12sp"
+        android:textColor="#6366F1"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
