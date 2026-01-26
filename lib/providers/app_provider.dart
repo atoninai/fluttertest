@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../config/constants.dart';
 import '../models/models.dart';
 import '../services/storage_service.dart';
 import '../services/routine_generator.dart';
@@ -32,8 +33,7 @@ class AppProvider extends ChangeNotifier {
   
   int get daysRemaining {
     final now = DateTime.now();
-    final examDate = DateTime(2026, 2, 14);
-    return examDate.difference(now).inDays;
+    return AppConstants.sscExamDate.difference(now).inDays;
   }
 
   DailyRoutine? get todayRoutine {

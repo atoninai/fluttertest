@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:animate_do/animate_do.dart';
 import '../config/themes.dart';
 import '../providers/app_provider.dart';
 import '../models/models.dart';
@@ -8,6 +7,7 @@ import 'calendar_screen.dart';
 import 'routine_screen.dart';
 import 'alarm_screen.dart';
 import 'settings_screen.dart';
+import 'custom_routine_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -81,6 +81,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const CustomRoutineScreen()),
+          );
+        },
+        backgroundColor: AppTheme.accentColor,
+        icon: const Icon(Icons.auto_awesome_rounded),
+        label: const Text('AI Routine'),
+      ),
     );
   }
 }
@@ -152,41 +163,27 @@ class _HomeTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Header
-                FadeInDown(
-                  child: _buildHeader(context, provider),
-                ),
+                _buildHeader(context, provider),
                 
                 const SizedBox(height: 24),
                 
                 // Countdown Card
-                FadeInUp(
-                  delay: const Duration(milliseconds: 100),
-                  child: _buildCountdownCard(daysRemaining),
-                ),
+                _buildCountdownCard(daysRemaining),
                 
                 const SizedBox(height: 20),
                 
                 // Progress Card
-                FadeInUp(
-                  delay: const Duration(milliseconds: 200),
-                  child: _buildProgressCard(provider),
-                ),
+                _buildProgressCard(provider),
                 
                 const SizedBox(height: 20),
                 
                 // Today's Sessions
-                FadeInUp(
-                  delay: const Duration(milliseconds: 300),
-                  child: _buildTodaySessions(context, provider, todayRoutine),
-                ),
+                _buildTodaySessions(context, provider, todayRoutine),
                 
                 const SizedBox(height: 20),
                 
                 // Quick Stats
-                FadeInUp(
-                  delay: const Duration(milliseconds: 400),
-                  child: _buildQuickStats(provider),
-                ),
+                _buildQuickStats(provider),
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 class AppConstants {
-  // SSC Exam Date - February 14, 2026 (assumed, based on typical schedule)
-  static final DateTime sscExamDate = DateTime(2026, 2, 14);
+  // SSC Exam Date - April 21, 2026 (based on official routine)
+  static final DateTime sscExamDate = DateTime(2026, 4, 21);
   
   // App Info
   static const String appName = 'SSC26 Study Planner';

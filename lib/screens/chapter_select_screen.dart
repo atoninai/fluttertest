@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:animate_do/animate_do.dart';
 import '../config/themes.dart';
 import '../providers/app_provider.dart';
 import '../models/models.dart';
@@ -42,22 +41,19 @@ class _ChapterSelectScreenState extends State<ChapterSelectScreen> {
                       itemCount: provider.subjects.length,
                       itemBuilder: (context, index) {
                         final subject = provider.subjects[index];
-                        return FadeInUp(
-                          delay: Duration(milliseconds: 100 * index),
-                          child: _SubjectCard(
-                            subject: subject,
-                            completedChapterIds: provider.completedChapterIds,
-                            isExpanded: _expandedSubjects[subject.id] ?? false,
-                            onToggleExpand: () {
-                              setState(() {
-                                _expandedSubjects[subject.id] = 
-                                    !(_expandedSubjects[subject.id] ?? false);
-                              });
-                            },
-                            onToggleChapter: (chapterId) {
-                              provider.toggleChapter(chapterId);
-                            },
-                          ),
+                        return _SubjectCard(
+                          subject: subject,
+                          completedChapterIds: provider.completedChapterIds,
+                          isExpanded: _expandedSubjects[subject.id] ?? false,
+                          onToggleExpand: () {
+                            setState(() {
+                              _expandedSubjects[subject.id] = 
+                                  !(_expandedSubjects[subject.id] ?? false);
+                            });
+                          },
+                          onToggleChapter: (chapterId) {
+                            provider.toggleChapter(chapterId);
+                          },
                         );
                       },
                     ),

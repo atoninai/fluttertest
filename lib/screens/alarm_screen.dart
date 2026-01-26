@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
 import '../config/themes.dart';
 import '../models/models.dart';
 import '../services/storage_service.dart';
@@ -74,13 +73,10 @@ class _AlarmScreenState extends State<AlarmScreen> {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: _alarms.length,
-      itemBuilder: (context, index) => FadeInUp(
-        delay: Duration(milliseconds: 100 * index),
-        child: _AlarmCard(
-          alarm: _alarms[index],
-          onToggle: (enabled) => _toggleAlarm(_alarms[index], enabled),
-          onDelete: () => _deleteAlarm(_alarms[index]),
-        ),
+      itemBuilder: (context, index) => _AlarmCard(
+        alarm: _alarms[index],
+        onToggle: (enabled) => _toggleAlarm(_alarms[index], enabled),
+        onDelete: () => _deleteAlarm(_alarms[index]),
       ),
     );
   }

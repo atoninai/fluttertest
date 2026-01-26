@@ -37,10 +37,21 @@ void main() async {
 
 Future<void> _requestPermissions() async {
   // Request notification permission
-  await Permission.notification.request();
+  final notificationStatus = await Permission.notification.request();
+  
+  if (notificationStatus.isDenied) {
+    debugPrint('Notification permission denied');
+  }
   
   // Request alarm permission (Android 12+)
-  await Permission.scheduleExactAlarm.request();
+  final alarmStatus = await Permission.scheduleExactAlarm.request();
+  
+  if (alarmStatus.isDenied) {
+    debugPrint('Alarm permission denied');
+  }
+  
+  // Request notification permission via the notification service as well
+  await NotificationService.requestPermissions();
 }
 
 class SSC26App extends StatelessWidget {

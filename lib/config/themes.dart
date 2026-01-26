@@ -80,7 +80,7 @@ class AppTheme {
         ),
         iconTheme: const IconThemeData(color: textPrimary),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardBackground,
         elevation: 0,
         shape: RoundedRectangleBorder(
